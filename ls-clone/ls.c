@@ -61,14 +61,11 @@ void listDir(char *dirName) {
         strftime(timeStr, 16, "%Y-%m-%dT%H:%M", modified);
 
         off_t entSize = stats.st_size;
-        char entSizeStr[11] = "";
-        snprintf(entSizeStr, sizeof(entSizeStr), "%10lld", entSize);
 
         char *entName = getEntName(directory, ents[i]);
         
-        char *outputStr = "%8s %8s %10s %10s %-128s\n\0";
-
-        printf(outputStr,user->pw_name,group->gr_name,entSizeStr, timeStr, entName);
+        char *outputStr = "%8s %8s %10lld %10s %-128s\n\0";
+        printf(outputStr,user->pw_name,group->gr_name, entSize, timeStr, entName);
 
         free(entName);
         free(ents[i]);
