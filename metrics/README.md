@@ -4,7 +4,7 @@ Optimization exercise on an example metrics program which calculates averages an
 
 * `metrics_baseline.go` is the program as given.
 
-* `metrics_optized.go` is an optimized version that uses an array-based vs object-oriented approach.
+* `metrics_array.go` is an optimized version that uses an array-based vs object-oriented approach.
 
 * `metrics_streaming.go` is a second optimized version that uses a single pass through the source files.
 
@@ -15,9 +15,9 @@ To run benchmarks:
 goos: darwin
 goarch: amd64
 cpu: Intel(R) Core(TM) i7-9750H CPU @ 2.60GHz
-BenchmarkMetrics/Metrics_Baseline-12                   1        1425283274 ns/op        544903984 B/op   5867781 allocs/op
-BenchmarkMetrics/Metrics_Optimized-12                  4         311954067 ns/op        271589242 B/op   2200097 allocs/op
-BenchmarkMetrics/Metrics_Streaming-12                  6         174200070 ns/op        112461762 B/op   2200009 allocs/op
+BenchmarkMetrics/Metrics_Baseline-12                   1        1450591279 ns/op  544892904 B/op   5867714 allocs/op
+BenchmarkMetrics/Metrics_Array-12                      4         313136749 ns/op  271589240 B/op   2200097 allocs/op
+BenchmarkMetrics/Metrics_Streaming-12                  6         172643944 ns/op  112461893 B/op   2200010 allocs/op
 PASS
-ok      command-line-arguments  5.405s
+ok      command-line-arguments  6.349s
 ```

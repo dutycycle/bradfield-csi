@@ -13,7 +13,7 @@ type UserArrays struct {
 	payments []uint64
 }
 
-func AverageAgeOptimized(users UserArrays) float64 {
+func AverageAgeArray(users UserArrays) float64 {
 	sum := uint64(0)
 	for _, age := range users.ages {
 		sum += uint64(age)
@@ -21,7 +21,7 @@ func AverageAgeOptimized(users UserArrays) float64 {
 	return float64(sum) / float64(len(users.ages))
 }
 
-func AveragePaymentAmountOptimized(users UserArrays) float64 {
+func AveragePaymentAmountArray(users UserArrays) float64 {
 	sum := uint64(0)
 	for _, payment := range users.payments {
 		sum += payment;
@@ -30,7 +30,7 @@ func AveragePaymentAmountOptimized(users UserArrays) float64 {
 }
 
 // Sum of squares method, taken from https://play.golang.org/p/xQXiHFzmxxN
-func StdDevPaymentAmountOptimized(users UserArrays) float64 {
+func StdDevPaymentAmountArray(users UserArrays) float64 {
 	sumSquares, sum := float64(0), float64(0)
 	numPayments := float64(len(users.payments))
 
@@ -44,7 +44,7 @@ func StdDevPaymentAmountOptimized(users UserArrays) float64 {
 	return math.Sqrt(avgSquares - avg*avg)
 }
 
-func LoadDataOptimized() UserArrays {
+func LoadDataArray() UserArrays {
 	f, err := os.Open("users.csv")
 	if err != nil {
 		log.Fatalln("Unable to read users.csv", err)
@@ -80,8 +80,8 @@ func LoadDataOptimized() UserArrays {
 	return UserArrays{ages, payments}
 }
 
-func CalculateMetricsOptimized() Metrics {
-	userArrays := LoadDataOptimized()
+func CalculateMetricsArray() Metrics {
+	userArrays := LoadDataArray()
 
-	return Metrics{AverageAgeOptimized(userArrays), AveragePaymentAmountOptimized(userArrays), StdDevPaymentAmountOptimized(userArrays) }
+	return Metrics{AverageAgeArray(userArrays), AveragePaymentAmountArray(userArrays), StdDevPaymentAmountArray(userArrays) }
 }

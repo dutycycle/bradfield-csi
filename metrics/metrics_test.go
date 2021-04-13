@@ -29,11 +29,11 @@ func BenchmarkMetrics(b *testing.B) {
 		}
 	})
 
-	b.Run("Metrics Optimized", func(b *testing.B) {
+	b.Run("Metrics Array", func(b *testing.B) {
 		var metrics Metrics
 
 		for n := 0; n < b.N; n++ {
-			metrics = CalculateMetricsOptimized()
+			metrics = CalculateMetricsArray()
 		}
 
 		expectedAverageAge := 59.62
